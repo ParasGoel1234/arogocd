@@ -2,11 +2,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: myapp
+  namespace: myapp-ns
 spec:
   selector:
     matchLabels:
       app: myapp
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -14,6 +15,10 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: myapp:26
+        image: 876724398547.dkr.ecr.ap-southeast-2.amazonaws.com/parasecr:latest
+        imagePullPolicy: Always
         ports:
-        - containerPort: 8083
+          - name: web
+            containerPort: 8080
+      imagePullSecrets:
+          - name: regcred
