@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: 876724398547.dkr.ecr.ap-southeast-2.amazonaws.com/parasecr:26
+        image: 876724398547.dkr.ecr.ap-southeast-2.amazonaws.com/parasecr:latest
         imagePullPolicy: Always
         ports:
           - name: web
